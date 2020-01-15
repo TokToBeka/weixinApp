@@ -5,7 +5,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    swiperImg: [{
+      mode: 'scaleTofill',
+      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/fruit-1.jpg'
+    }, {
+      mode: 'scaleTofill',
+      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/fruit-2.jpg'
+    }, {
+      mode: 'scaleTofill',
+      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/fruit-3.jpg'
+    }],
+    indicatorDots: false,
+    autoplay: true,
+    interval: 3000,
+    duration: 1000,
+    circular: true,
+    // easingFunction: "easeInOutCubic"
   },
 
   /**
@@ -61,6 +76,9 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '悠果乐园',
+      path: 'pages/home/index'
+    }
   }
 })

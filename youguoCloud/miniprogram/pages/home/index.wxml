@@ -1,2 +1,13 @@
-<!--miniprogram/pages/home/index.wxml-->
-<text>首页</text>
+<view class="container">
+  <view class="page-body">
+    <view class="page-section page-section-spacing swiper">
+      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{swiperImg}}" wx:key="*this">
+          <swiper-item class="swiper-item">
+            <image mode="{{item.mode}}" src="{{item.url}}"></image>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+</view>
