@@ -7,13 +7,13 @@ Page({
   data: {
     swiperImg: [{
       mode: 'scaleTofill',
-      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/fruit-1.jpg'
+      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-3.jpg'
     }, {
       mode: 'scaleTofill',
-      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/fruit-2.jpg'
+      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-6.jpg'
     }, {
       mode: 'scaleTofill',
-      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/fruit-3.jpg'
+      url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-10.jpg'
     }],
     indicatorDots: false,
     autoplay: true,
