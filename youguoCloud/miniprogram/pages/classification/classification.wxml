@@ -1,2 +1,10 @@
-<!--miniprogram/pages/classification/classification.wxml-->
-<text>分类</text>
+<view class="container">
+  <view class="content-container">
+    <scroll-view class="category-container" scroll-y="true" scroll-with-animation="true">
+      <view class="category {{categorySelected.id==category.id?'active':''}}" wx:for="{{categories}}" wx:for-item="category" wx:key="id" data-id="{{category.id}}" bindtap="onCategoryClick">
+        <view class="name {{categorySwlected.id==category.id?'active':''}}">{{category.name}}</view>
+      </view>
+    </scroll-view>
+    <scroll-view class="goods-container" scroll-y="true" scroll-top="{{scrolltop}}" wx:if="{{onLoadStatus}}"></scroll-view>
+  </view>
+</view>
