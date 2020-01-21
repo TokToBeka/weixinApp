@@ -22,31 +22,102 @@ Page({
 
   onAdd: function () {
     const db = wx.cloud.database()
-    db.collection('user').add({
-      data: {
-        firstName: "Jack",
-        lastName: "Chen"
-      },
-      success: res => {
-        // 在返回结果中会包含新创建的记录的 _id
-        this.setData({
-          counterId: res._id,
-          firstName: "Jack",
-          lastName: "Chen"
-        })
-        wx.showToast({
-          title: '新增记录成功',
-        })
-        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '新增记录失败'
-        })
-        console.error('[数据库] [新增记录] 失败：', err)
-      }
-    })
+    const data = [{
+      "id": 10000,
+      "key": "1",
+      "name": "活动",
+      "pid": 0,
+      "isUse": true,
+      "sort": 0
+    }, {
+      "id": 10001,
+      "key": "2",
+      "name": "热销",
+      "pid": 0,
+      "isUse": true,
+      "sort": 1
+    }, {
+      "id": 10002,
+      "key": "4",
+      "name": "时令水果",
+      "pid": 0,
+      "isUse": true,
+      "sort": 2
+    }, {
+      "id": 10003,
+      "key": "5",
+      "name": "热带鲜果",
+      "pid": 0,
+      "isUse": true,
+      "sort": 3
+    }, {
+      "id": 10004,
+      "key": "6",
+      "name": "进口水果",
+      "pid": 0,
+      "isUse": true,
+      "sort": 4
+    }, {
+      "id": 10005,
+      "key": "7",
+      "name": "国产水果",
+      "pid": 0,
+      "isUse": true,
+      "sort": 5
+    }, {
+      "id": 10006,
+      "key": "8",
+      "name": "优质水果",
+      "pid": 0,
+      "isUse": true,
+      "sort": 6
+    }, {
+      "id": 10007,
+      "key": "9",
+      "name": "水果现切",
+      "pid": 0,
+      "isUse": true,
+      "sort": 7
+    }, {
+      "id": 10008,
+      "key": "10",
+      "name": "时令礼篮",
+      "pid": 0,
+      "isUse": true,
+      "sort": 8
+    }, {
+      "id": 10009,
+      "key": "11",
+      "name": "营养果干",
+      "pid": 0,
+      "isUse": true,
+      "sort": 9
+    }]
+    for (let i=0;i<data.length;i++){
+      db.collection('category').add({
+        data: data[i],
+        success: res => {
+          // 在返回结果中会包含新创建的记录的 _id
+          this.setData({
+            counterId: res._id,
+            // firstName: "Jack",
+            // lastName: "Chen"
+          })
+          wx.showToast({
+            title: '新增记录成功',
+          })
+          console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+        },
+        fail: err => {
+          wx.showToast({
+            icon: 'none',
+            title: '新增记录失败'
+          })
+          console.error('[数据库] [新增记录] 失败：', err)
+        }
+      })
+    }
+
   },
 
   onQuery: function() {
