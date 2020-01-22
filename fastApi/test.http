@@ -1,0 +1,21 @@
+POST http://127.0.0.1:8000/insert HTTP/1.1
+Content-Type: application/json
+
+{
+  "name": "kingname",
+  "age": 27,
+  "address": "西安",
+  "salary": 10000
+}
+
+###
+GET http://127.0.0.1:8000/
+
+###
+GET http://127.0.0.1:8000/query/abc
+
+###
+GET http://127.0.0.1:8000/query/category
+
+###
+GET http://127.0.0.1:8000/query/goods
