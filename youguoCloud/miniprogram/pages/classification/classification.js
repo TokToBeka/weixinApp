@@ -90,7 +90,30 @@ Page({
   },
 
   onCategoryClick: function (e) {
-
+    var that = this;
+    var id = e.target.dataset.id;
+    if (id === that.data.categorySelected.id) {
+      that.setData({
+        scolltop: 0
+      })
+    } else {
+      var categoryName = '';
+      for (let i = 0; i < that.data.categories.length; i++) {
+        let item = that.data.categories[i];
+        if (item.id == id) {
+          categoryName = item.name;
+          break;
+        }
+      }
+      that.setData({
+        categorySelected: {
+          name: categoryName,
+          id: id
+        },
+        scolltop: 0
+      })
+      that.getGoodList();
+    }
   },
   toDetailsTap: function (e) {
 

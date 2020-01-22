@@ -14,6 +14,7 @@ input {
 .container {
   width: 100vw;
   height: 100vh;
+  background-color: #F2f2f2;
 }
 
 .search {
@@ -58,6 +59,9 @@ input {
 .category-container .category.active {
   background: #fff;
   border-left: 4rpx solid #34cc99;
+}
+
+.category-container .category.active .name {
   color: #34cc99;
 }
 
