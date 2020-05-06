@@ -1,4 +1,5 @@
 // miniprogram/pages/home/index.js
+const WXAPI = require('apifm-wxapi')
 Page({
 
   /**
@@ -15,21 +16,46 @@ Page({
       mode: 'scaleTofill',
       url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-10.jpg'
     }],
-    indicatorDots: false,
+    indicatorDots: true,
+    indicatorActiveColor: '#34cc99',
     autoplay: true,
     interval: 4000,
     duration: 2000,
     circular: true,
-    easingFunction: "easeInOutCubic"
+    easingFunction: "easeInOutCubic",
+    categories: [],
   },
-
+  /**
+   * 跳转到指定页面
+   */
+  tabClick: function (e) {
+    // wx.navigateTo({
+    //   url: '/pages/goods/list?categoryId=' + e.currentTarget.id,
+    // })
+    return;
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.categories()
   },
-
+  async categories() {
+    const res = await WXAPI.goodsCategory()
+    let categories = [];
+    if (res.code == 0) {
+      const _categories = res.data.filter(ele => {
+        return ele.level == 1
+      })
+      categories = categories.concat(_categories)
+    }
+    this.setData({
+      categories: categories,
+      activeCategoryId: 0,
+      curPage: 1
+    });
+    //this.getGoodsList(0);
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

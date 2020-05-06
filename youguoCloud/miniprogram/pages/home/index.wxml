@@ -1,13 +1,21 @@
 <view class="container">
   <view class="page-body">
     <view class="page-section page-section-spacing swiper">
-      <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" easing-function="{{easingFunction}}">
+      <swiper indicator-dots="{{indicatorDots}}" indicator-active-color="{{indicatorActiveColor}}" autoplay="{{autoplay}}" circular="{{circular}}" interval="{{interval}}" duration="{{duration}}" easing-function="{{easingFunction}}">
         <block wx:for="{{swiperImg}}" wx:key="*this">
           <swiper-item class="swiper-item">
             <image mode="{{item.mode}}" src="{{item.url}}"></image>
           </swiper-item>
         </block>
       </swiper>
+    </view>
+    <view class="category-box">
+      <view class="category-list" wx:for="{{categories}}" wx:key="id">
+        <view class="category-column {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick" id="{{item.id}}">
+          <image mode="aspectFill" class="category-imgbox" src="{{item.icon}}"></image>
+          <view class="category-title">{{item.name}}</view>
+        </view>
+      </view>
     </view>
   </view>
 </view>
