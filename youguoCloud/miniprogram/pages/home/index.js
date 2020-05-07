@@ -1,5 +1,5 @@
 // miniprogram/pages/home/index.js
-const WXAPI = require('apifm-wxapi')
+// const WXAPI = require('apifm-wxapi')
 Page({
 
   /**
@@ -38,24 +38,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.categories()
+    // this.categories()
   },
-  async categories() {
-    const res = await WXAPI.goodsCategory()
-    let categories = [];
-    if (res.code == 0) {
-      const _categories = res.data.filter(ele => {
-        return ele.level == 1
-      })
-      categories = categories.concat(_categories)
-    }
-    this.setData({
-      categories: categories,
-      activeCategoryId: 0,
-      curPage: 1
-    });
-    //this.getGoodsList(0);
-  },
+  // async categories() {
+  //   const res = await WXAPI.goodsCategory()
+  //   let categories = [];
+  //   if (res.code == 0) {
+  //     const _categories = res.data.filter(ele => {
+  //       return ele.level == 1
+  //     })
+  //     categories = categories.concat(_categories)
+  //   }
+  //   this.setData({
+  //     categories: categories,
+  //     activeCategoryId: 0,
+  //     curPage: 1
+  //   });
+  //   //this.getGoodsList(0);
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

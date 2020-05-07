@@ -19,35 +19,32 @@ Page({
   onLoad: function (options) {
     this.categories()
   },
+
+  /**
+   * 获取分类的数据
+   */
   async categories() {
+    var that = this
     wx.showLoading({
       title: '加载中'
     })
-    wx.request({
-      url: 'http://127.0.0.1:8000/query/category',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: (result) => {
-        const res = result.data.data;
+    const db = wx.cloud.database();
+    db.collection('category').get({
+      success: function (result) {
+        const res = result.data;
         wx.hideLoading();
         let categories = [];
         let categoryName = '';
         let categoryId = '';
-        if (res.code == 0) {
-          for (let i = 0; i < res.data.length; i++) {
-            let item = res.data[i];
-            categories.push(item);
-            if (i == 0) {
-              categoryName = item.name;
-              categoryId = item.id;
-            }
+        for (let i of res) {
+          categories.push(i);
+          if (i.sort == 0) {
+            categoryName = i.name;
+            categoryId = i.id
           }
         }
-        this.setData({
+        categories.sort(that.compare('sort'));
+        that.setData({
           categories: categories,
           categorySelected: {
             name: categoryName,
@@ -55,38 +52,55 @@ Page({
           }
         });
         this.getGoodList();
-      },
-      fail: () => {},
-      complete: () => {}
-    });
-  },
+      }
+    })
 
+  },
+  compare: (property) => {
+    return function (a, b) {
+      var value1 = a[property];
+      var value2 = b[property];
+      return value1 - value2;
+    }
+  },
   async getGoodList() {
+    var that = this;
     wx.showLoading({
       title: '加载中'
     })
-    wx.request({
-      url: 'http://127.0.0.1:8000/query/goods',
-      header: {
-        'content-type': 'application/json'
-      },
-      method: 'GET',
-      dataType: 'json',
-      responseType: 'text',
-      success: (result) => {
-        const res = result.data.data.data;
+    const db = wx.cloud.database();
+    db.collection('goods').get({
+      success: function (result) {
+        const res = result.data;
         wx.hideLoading();
-        if (result.code == 700) {
-          this.setData({
-            currentGoods: null
-          });
-          return
-        }
         this.setData({
           currentGoods: res
         })
       }
     })
+    // wx.request({
+    //   url: 'http://127.0.0.1:8000/query/goods',
+    //   header: {
+    //     'content-type': 'application/json'
+    //   },
+    //   method: 'GET',
+    //   dataType: 'json',
+    //   responseType: 'text',
+    //   success: (result) => {
+    //     const res = result.data.data.data;
+    //     console.log('res:' + JSON.stringify(res));
+    //     wx.hideLoading();
+    //     if (result.code == 700) {
+    //       this.setData({
+    //         currentGoods: null
+    //       });
+    //       return
+    //     }
+    //     this.setData({
+    //       currentGoods: res
+    //     })
+    //   }
+    // })
   },
 
   onCategoryClick: function (e) {
