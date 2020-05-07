@@ -68,15 +68,17 @@ Page({
       title: '加载中',
     })
     const db = wx.cloud.database()
-    db.collection('goods').get({
-      success: function (result) {
-        const res = result.data
-        wx.hideLoading()
-        that.setData({
-          currentGoods: res,
-        })
-      },
-    })
+    db.collection('goods')
+      .where({})
+      .get({
+        success: function (result) {
+          const res = result.data
+          wx.hideLoading()
+          that.setData({
+            currentGoods: res,
+          })
+        },
+      })
     // wx.request({
     //   url: 'http://127.0.0.1:8000/query/goods',
     //   header: {
@@ -105,7 +107,10 @@ Page({
   onCategoryClick: function (e) {
     var that = this
     var id = e.target.dataset.id
+    console.log('id:' + id)
+    console.log('selectedId:' + that.data.categorySelected.id)
     if (id === that.data.categorySelected.id) {
+      console.log(111)
       that.setData({
         scolltop: 0,
       })
@@ -125,6 +130,9 @@ Page({
         },
         scolltop: 0,
       })
+      console.log(
+        'categorySelected:' + JSON.stringify(that.data.categorySelected)
+      )
       that.getGoodList()
     }
   },
