@@ -69,7 +69,7 @@ Page({
     })
     const db = wx.cloud.database()
     db.collection('goods')
-      .where({})
+      .where({ categoryId: that.data.categorySelected.id })
       .get({
         success: function (result) {
           const res = result.data
