@@ -6,11 +6,11 @@ Page({
     categories: [],
     categorySelected: {
       name: '',
-      id: ''
+      id: '',
     },
     currentGoods: [],
     onLoadStatus: true,
-    scolltop: 0
+    scolltop: 0,
   },
 
   /**
@@ -26,57 +26,56 @@ Page({
   async categories() {
     var that = this
     wx.showLoading({
-      title: '加载中'
+      title: '加载中',
     })
-    const db = wx.cloud.database();
+    const db = wx.cloud.database()
     db.collection('category').get({
       success: function (result) {
-        const res = result.data;
-        wx.hideLoading();
-        let categories = [];
-        let categoryName = '';
-        let categoryId = '';
+        const res = result.data
+        wx.hideLoading()
+        let categories = []
+        let categoryName = ''
+        let categoryId = ''
         for (let i of res) {
-          categories.push(i);
+          categories.push(i)
           if (i.sort == 0) {
-            categoryName = i.name;
+            categoryName = i.name
             categoryId = i.id
           }
         }
-        categories.sort(that.compare('sort'));
+        categories.sort(that.compare('sort'))
         that.setData({
           categories: categories,
           categorySelected: {
             name: categoryName,
-            id: categoryId
-          }
-        });
-        this.getGoodList();
-      }
+            id: categoryId,
+          },
+        })
+        this.getGoodList()
+      },
     })
-
   },
   compare: (property) => {
     return function (a, b) {
-      var value1 = a[property];
-      var value2 = b[property];
-      return value1 - value2;
+      var value1 = a[property]
+      var value2 = b[property]
+      return value1 - value2
     }
   },
   async getGoodList() {
-    var that = this;
+    var that = this
     wx.showLoading({
-      title: '加载中'
+      title: '加载中',
     })
-    const db = wx.cloud.database();
+    const db = wx.cloud.database()
     db.collection('goods').get({
       success: function (result) {
-        const res = result.data;
-        wx.hideLoading();
-        this.setData({
-          currentGoods: res
+        const res = result.data
+        wx.hideLoading()
+        that.setData({
+          currentGoods: res,
         })
-      }
+      },
     })
     // wx.request({
     //   url: 'http://127.0.0.1:8000/query/goods',
@@ -104,33 +103,30 @@ Page({
   },
 
   onCategoryClick: function (e) {
-    var that = this;
-    var id = e.target.dataset.id;
+    var that = this
+    var id = e.target.dataset.id
     if (id === that.data.categorySelected.id) {
       that.setData({
-        scolltop: 0
+        scolltop: 0,
       })
     } else {
-      var categoryName = '';
+      var categoryName = ''
       for (let i = 0; i < that.data.categories.length; i++) {
-        let item = that.data.categories[i];
+        let item = that.data.categories[i]
         if (item.id == id) {
-          categoryName = item.name;
-          break;
+          categoryName = item.name
+          break
         }
       }
       that.setData({
         categorySelected: {
           name: categoryName,
-          id: id
+          id: id,
         },
-        scolltop: 0
+        scolltop: 0,
       })
-      that.getGoodList();
+      that.getGoodList()
     }
   },
-  toDetailsTap: function (e) {
-
-  }
-
+  toDetailsTap: function (e) {},
 })
