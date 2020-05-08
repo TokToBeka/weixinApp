@@ -30,8 +30,7 @@
   "tabBar": {
     "color": "#8a8a8a",
     "selectedColor": "#34cc99",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/home/index",
         "iconPath": "assets/img/home.png",
         "selectedIconPath": "assets/img/home-1.png",
@@ -44,7 +43,7 @@
         "text": "分类"
       },
       {
-        "pagePath": "pages/databaseGuide/databaseGuide",
+        "pagePath": "pages/group/group",
         "iconPath": "assets/img/group.png",
         "selectedIconPath": "assets/img/group-1.png",
         "text": "团购"
