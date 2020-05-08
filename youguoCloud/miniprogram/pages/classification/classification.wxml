@@ -11,6 +11,23 @@
         <view class="txt">暂无商品</view>
         <view class="line"></view>
       </view>
+      <block wx:for="{{categories}}" wx:key="id" wx:if="{{item.pid == categorySelected.id}}">
+        <navigator url="/pages/goods/list?categoryId={{item.id}}">
+          <view class="no-data medium-category">
+            <view class="line"></view>
+            <view class="txt">{{item.name}}</view>
+            <view class="line"></view>
+          </view>
+        </navigator>
+        <view class="small-category-box">
+          <navigator wx:for="{{categories}}" wx:for-item="small" wx:key="id" wx:if="{{small.pid == item.id}}" url="/pages/goods/list?categoryId={{small.id}}">
+            <view class="small-category">
+              <image mode="aspectFill" src="{{small.icon}}"></image>
+              <view>{{small.name}}</view>
+            </view>
+          </navigator>
+        </view>
+      </block>
       <view class="goods" wx:for="{{currentGoods}}" wx:key="id" wx:for-item="item" data-id="{{item.id}}" bindtap="toDetailsTap">
         <image class="pic" src="{{item.pic}}" mode="aspectFill"></image>
         <view class="name ellipsis">{{item.name}}</view>

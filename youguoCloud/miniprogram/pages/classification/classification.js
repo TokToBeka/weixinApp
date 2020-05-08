@@ -51,10 +51,14 @@ Page({
             id: categoryId,
           },
         })
-        this.getGoodList()
+        that.getGoodList()
       },
     })
   },
+
+  /**
+   * 数组排序
+   */
   compare: (property) => {
     return function (a, b) {
       var value1 = a[property]
@@ -62,6 +66,10 @@ Page({
       return value1 - value2
     }
   },
+
+  /**
+   * 获取分类下具体信息的数据
+   */
   async getGoodList() {
     var that = this
     wx.showLoading({
@@ -69,48 +77,34 @@ Page({
     })
     const db = wx.cloud.database()
     db.collection('goods')
-      .where({ categoryId: that.data.categorySelected.id })
+      .where({
+        categoryId: that.data.categorySelected.id
+      })
       .get({
         success: function (result) {
           const res = result.data
           wx.hideLoading()
+          if (res.length == 0) {
+            that.setData({
+              currentGoods: null
+            })
+            return
+          }
           that.setData({
             currentGoods: res,
           })
         },
       })
-    // wx.request({
-    //   url: 'http://127.0.0.1:8000/query/goods',
-    //   header: {
-    //     'content-type': 'application/json'
-    //   },
-    //   method: 'GET',
-    //   dataType: 'json',
-    //   responseType: 'text',
-    //   success: (result) => {
-    //     const res = result.data.data.data;
-    //     console.log('res:' + JSON.stringify(res));
-    //     wx.hideLoading();
-    //     if (result.code == 700) {
-    //       this.setData({
-    //         currentGoods: null
-    //       });
-    //       return
-    //     }
-    //     this.setData({
-    //       currentGoods: res
-    //     })
-    //   }
-    // })
   },
 
+  /**
+   * 分类点击事件
+   * 获取当前点击的分类信息并更新categorySelected
+   */
   onCategoryClick: function (e) {
     var that = this
     var id = e.target.dataset.id
-    console.log('id:' + id)
-    console.log('selectedId:' + that.data.categorySelected.id)
     if (id === that.data.categorySelected.id) {
-      console.log(111)
       that.setData({
         scolltop: 0,
       })
@@ -130,9 +124,6 @@ Page({
         },
         scolltop: 0,
       })
-      console.log(
-        'categorySelected:' + JSON.stringify(that.data.categorySelected)
-      )
       that.getGoodList()
     }
   },
