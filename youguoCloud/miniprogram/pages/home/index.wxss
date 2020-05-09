@@ -52,3 +52,83 @@ page {
   text-align: center;
   margin-top: 10rpx;
 }
+
+.ticket-box {
+  background-color: #fff;
+}
+
+.ticket-content {
+  height: 180rpx;
+  padding: 0 10rpx;
+  margin-top: 30rpx;
+  position: relative;
+}
+
+.ticket-imgbox {
+  width: 100%;
+  height: 100%;
+}
+
+.ticket-contbox {
+  position: absolute;
+  top: 0;
+}
+
+.preferential_price,
+.preferential_range {
+  margin-top: 10rpx;
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.preferential_price {
+  left: 20rpx;
+}
+
+.preferential_range {
+  left: 300rpx;
+}
+
+.money {
+  margin-left: 20rpx;
+  font-size: 40rpx;
+  font-weight: 700;
+  color: #fff;
+  display: inline;
+
+}
+
+.price {
+  font-size: 100rpx;
+  font-weight: 700;
+  color: #fff;
+  display: inline;
+}
+
+.range {
+  color: #fff;
+  font-size: 60rpx;
+  word-break: break-all;
+  width: 150rpx;
+  margin-top: -18rpx;
+}
+
+.ticket-get {
+  height: 100rpx;
+  width: 200rpx;
+  position: absolute;
+  right: 20rpx;
+  top: 40rpx;
+}
+
+.ticket-get image {
+  width: 100%;
+  height: 100%;
+}
+
+.ticket-get view {
+  position: absolute;
+  top: 24rpx;
+  left: 38rpx;
+}
