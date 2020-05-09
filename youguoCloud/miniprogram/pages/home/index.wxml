@@ -17,5 +17,83 @@
         </view>
       </view>
     </view> -->
+    <view class="category-box">
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img2.png"></image>
+          <view class="category-title">进口水果</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
+          <view class="category-title">国产水果</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img3.png"></image>
+          <view class="category-title">时令新品</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img4.png"></image>
+          <view class="category-title">海鲜水产</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img5.png"></image>
+          <view class="category-title">营养果干</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
+          <view class="category-title">乳品</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
+          <view class="category-title">限时秒杀</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
+          <view class="category-title">多人拼团</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/wuliu.png"></image>
+          <view class="category-title">物流售后</view>
+        </view>
+      </view>
+      <view class="category-list">
+        <view class="category-column">
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/quan.png"></image>
+          <view class="category-title">领券</view>
+        </view>
+      </view>
+    </view>
+    <view class="ticket-box">
+      <view class="ticket-content">
+        <image class="ticket-imgbox" src="{{ticketImg.ticket}}"></image>
+        <view class="preferential_price">
+          <view class="money">￥</view>
+          <view class="price">30</view>
+        </view>
+        <view class="preferential_range">
+          <view class="range">新人专享</view>
+        </view>
+        <view class="ticket-get">
+          <image src="{{ticketImg.ticket_b}}" />
+          <view>立即领取</view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

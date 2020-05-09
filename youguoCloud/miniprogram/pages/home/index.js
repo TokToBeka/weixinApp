@@ -16,6 +16,13 @@ Page({
       mode: 'scaleTofill',
       url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-10.jpg'
     }],
+    ticketImg: [{
+        'ticket': 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket.webp'
+      },
+      {
+        'ticket_b': 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket_b.webp'
+      }
+    ],
     indicatorDots: true,
     indicatorActiveColor: '#34cc99',
     autoplay: true,
