@@ -38,7 +38,7 @@
       </view>
       <view class="category-list">
         <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img4.png"></image>
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_seafood.png"></image>
           <view class="category-title">海鲜水产</view>
         </view>
       </view>
@@ -56,42 +56,73 @@
       </view>
       <view class="category-list">
         <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_seckill.png"></image>
           <view class="category-title">限时秒杀</view>
         </view>
       </view>
       <view class="category-list">
         <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_groupbuy.png"></image>
           <view class="category-title">多人拼团</view>
         </view>
       </view>
       <view class="category-list">
         <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/wuliu.png"></image>
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_logistics.png"></image>
           <view class="category-title">物流售后</view>
         </view>
       </view>
       <view class="category-list">
         <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/quan.png"></image>
+          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_ticket1.png"></image>
           <view class="category-title">领券</view>
         </view>
       </view>
     </view>
     <view class="ticket-box">
       <view class="ticket-content">
-        <image class="ticket-imgbox" src="{{ticketImg.ticket}}"></image>
+        <image class="ticket-imgbox" src="{{ticketImgUrl}}"></image>
         <view class="preferential_price">
           <view class="money">￥</view>
           <view class="price">30</view>
         </view>
         <view class="preferential_range">
-          <view class="range">新人专享</view>
+          <view class="range">新  人专  享</view>
         </view>
         <view class="ticket-get">
-          <image src="{{ticketImg.ticket_b}}" />
+          <image src="{{ticket_bImgUrl}}" />
           <view>立即领取</view>
+        </view>
+      </view>
+    </view>
+    <view class="img_wrap">
+      <image src="../../assets/img/title.jpg" />
+    </view>
+    <view class="goods-container">
+      <view class="goods-box">
+        <view class="img-box">
+          <image src="../../assets/img/fruit1.jpg" class="image" mode="aspectFill" lazy-load="true" />
+        </view>
+        <view class="goods-title">越南进口白心火龙果</view>
+        <view style='display:flex;'>
+          <view class="goods-price">¥ 29.9</view>
+          <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 39.9</view>
+          <view class="goods-img">
+            <image src="../../assets/img/qiang.png" />
+          </view>
+        </view>
+      </view>
+      <view class="goods-box">
+        <view class="img-box">
+          <image src="../../assets/img/fruit2.jpg" class="image" mode="aspectFill" lazy-load="true" />
+        </view>
+        <view class="goods-title">海南 妃子笑荔枝</view>
+        <view style='display:flex;'>
+          <view class="goods-price">¥ 39.9</view>
+          <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 55.9</view>
+          <view class="goods-img">
+            <image src="../../assets/img/qiang.png" />
+          </view>
         </view>
       </view>
     </view>

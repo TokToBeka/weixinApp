@@ -108,10 +108,10 @@ page {
 
 .range {
   color: #fff;
-  font-size: 60rpx;
+  font-size: 40rpx;
   word-break: break-all;
-  width: 150rpx;
-  margin-top: -18rpx;
+  width: 100rpx;
+  margin-top: 18rpx;
 }
 
 .ticket-get {
@@ -131,4 +131,75 @@ page {
   position: absolute;
   top: 24rpx;
   left: 38rpx;
+}
+
+.img_wrap {
+  height: 82rpx;
+  margin-top: 10rpx;
+}
+
+.img_wrap image {
+  width: 100%;
+  height: 100%;
+}
+
+.goods-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-sizing: content-box;
+  padding: 24rpx;
+  background-color: #F2f2f2;
+}
+
+.goods-box {
+  width: 339rpx;
+  height: 472rpx;
+  background-color: #fff;
+  overflow: hidden;
+  margin-bottom: 24rpx;
+  border-radius: 5px;
+}
+
+.goods-box .img-box {
+  width: 339rpx;
+  height: 339rpx;
+  overflow: hidden;
+}
+
+.goods-box .img-box image {
+  width: 339rpx;
+  height: 339rpx;
+}
+
+.goods-box .goods-title {
+  width: 280rpx;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 24rpx;
+  padding: 24rpx 0 0rpx 0;
+  color: #000;
+  margin-left: 24rpx;
+}
+
+.goods-box .goods-price {
+  width: 280rpx;
+  overflow: hidden;
+  font-size: 24rpx;
+  padding: 24rpx 0;
+  color: #e64340;
+  margin-left: 24rpx;
+}
+
+.goods-box .goods-img {
+  width: 150rpx;
+  height: 57rpx;
+  margin-right: 10rpx;
+  margin-top: 10rpx;
+}
+
+.goods-box .goods-img image {
+  width: 100%;
+  height: 100%;
 }
