@@ -18,64 +18,10 @@
       </view>
     </view> -->
     <view class="category-box">
-      <view class="category-list">
+      <view class="category-list" wx:for="{{categoryList}}" wx:key="{{categoryList}}">
         <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img2.png"></image>
-          <view class="category-title">进口水果</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
-          <view class="category-title">国产水果</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img3.png"></image>
-          <view class="category-title">时令新品</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_seafood.png"></image>
-          <view class="category-title">海鲜水产</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img5.png"></image>
-          <view class="category-title">营养果干</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/img1.png"></image>
-          <view class="category-title">乳品</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_seckill.png"></image>
-          <view class="category-title">限时秒杀</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_groupbuy.png"></image>
-          <view class="category-title">多人拼团</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_logistics.png"></image>
-          <view class="category-title">物流售后</view>
-        </view>
-      </view>
-      <view class="category-list">
-        <view class="category-column">
-          <image mode="aspectFill" class="category-imgbox" src="../../assets/img/icon_ticket1.png"></image>
-          <view class="category-title">领券</view>
+          <image mode="aspectFill" class="category-imgbox" src="{{item.url}}"></image>
+          <view class="category-title">{{item.title}}</view>
         </view>
       </view>
     </view>
@@ -98,28 +44,35 @@
     <view class="img_wrap">
       <image src="../../assets/img/title.jpg" />
     </view>
-    <view class="goods-container">
-      <view class="goods-box">
-        <view class="img-box">
-          <image src="../../assets/img/fruit1.jpg" class="image" mode="aspectFill" lazy-load="true" />
-        </view>
-        <view class="goods-title">越南进口白心火龙果</view>
-        <view style='display:flex;'>
-          <view class="goods-price">¥ 29.9</view>
-          <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 39.9</view>
-          <view class="goods-img">
-            <image src="../../assets/img/qiang.png" />
-          </view>
+    <view class="cutdown-for-tab">
+      <view class="left-text">
+        <view class="countdown-box">
+          <text style="margin-right:10rpx">距结束</text>
+          <text class="countdown-item">{{countDownObj.day}}</text>
+          天
+          <text class="countdown-item">{{countDownObj.hou}}</text>
+          时
+          <text class="countdown-item">{{countDownObj.min}}</text>
+          分
+          <text class="countdown-item">{{countDownObj.sec}}</text>
+          秒
         </view>
       </view>
-      <view class="goods-box">
+      <view class="right-txt">
+        <text>更多>></text>
+      </view>
+    </view>
+    <view class="goods-container">
+      <view class="goods-box" wx:for="{{countDownList}}" wx:key="{{countDownList}}">
         <view class="img-box">
-          <image src="../../assets/img/fruit2.jpg" class="image" mode="aspectFill" lazy-load="true" />
+          <image src="{{item.url}}" class="image" mode="aspectFill" lazy-load="true" />
         </view>
-        <view class="goods-title">海南 妃子笑荔枝</view>
+        <view class="goods-title">{{item.title}}</view>
         <view style='display:flex;'>
-          <view class="goods-price">¥ 39.9</view>
-          <view class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ 55.9</view>
+          <view class="goods-price">¥ {{item.discountPrice}}</view>
+          <view class="goods-price" style='color:#aaa;text-decoration:line-through'>
+            ¥ {{item.originalPrice}}
+          </view>
           <view class="goods-img">
             <image src="../../assets/img/qiang.png" />
           </view>

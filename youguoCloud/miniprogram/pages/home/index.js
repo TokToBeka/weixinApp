@@ -26,6 +26,50 @@ Page({
     circular: true,
     easingFunction: "easeInOutCubic",
     categories: [],
+    actEndTime: '2020/5/12 09:00:00',
+    countDownObj: {},
+    countDownList: [{
+      'url': '../../assets/img/fruit1.jpg',
+      'title': '越南进口白心火龙果',
+      'discountPrice': '29.9',
+      'originalPrice': '39.9'
+    }, {
+      'url': '../../assets/img/fruit2.jpg',
+      'title': '海南 妃子笑荔枝',
+      'discountPrice': '39.9',
+      'originalPrice': '55.9'
+    }],
+    categoryList: [{
+      'url': '../../assets/img/img2.png',
+      'title': '进口水果'
+    }, {
+      'url': '../../assets/img/img1.png',
+      'title': '国产水果'
+    }, {
+      'url': '../../assets/img/img3.png',
+      'title': '时令新品'
+    }, {
+      'url': '../../assets/img/icon_seafood.png',
+      'title': '海鲜水产'
+    }, {
+      'url': '../../assets/img/img5.png',
+      'title': '营养果干'
+    }, {
+      'url': '../../assets/img/img1.png',
+      'title': '乳品'
+    }, {
+      'url': '../../assets/img/icon_seckill.png',
+      'title': '限时秒杀'
+    }, {
+      'url': '../../assets/img/icon_groupbuy.png',
+      'title': '多人拼团'
+    }, {
+      'url': '../../assets/img/icon_logistics.png',
+      'title': '物流售后'
+    }, {
+      'url': '../../assets/img/icon_ticket1.png',
+      'title': '领券'
+    }, ]
   },
   /**
    * 跳转到指定页面
@@ -41,6 +85,50 @@ Page({
    */
   onLoad: function (options) {
     // this.categories()
+    this.countDown()
+  },
+  /**
+   * 小于10的格式化函数
+   */
+  timeFormat(param) {
+    return param < 10 ? '0' + param : param
+  },
+  /**
+   * 倒计时函数
+   */
+  countDown() {
+    // 获取当前时间，同时得到活动结束时间数组
+    let newTime = new Date().getTime();
+    let endTime = new Date(this.data.actEndTime).getTime();
+    let countDownArr = [];
+    let obj = null;
+    // 如果活动未结束，对时间进行处理
+    if (endTime - newTime > 0) {
+      let time = (endTime - newTime) / 1000
+      // 获取天、时、分、秒
+      let day = parseInt(time / (60 * 60 * 24));
+      let hou = parseInt(time % (60 * 60 * 24) / 3600);
+      let min = parseInt(time % (60 * 60 * 24) % 3600 / 60);
+      let sec = parseInt(time % (60 * 60 * 24) % 3600 % 60);
+      obj = {
+        day: this.timeFormat(day),
+        hou: this.timeFormat(hou),
+        min: this.timeFormat(min),
+        sec: this.timeFormat(sec)
+      }
+    } else {
+      // 活动已结束，全部设置为‘00’
+      obj = {
+        day: '00',
+        hou: '00',
+        min: '00',
+        sec: '00'
+      }
+    }
+    this.setData({
+      countDownObj: obj
+    })
+    setTimeout(this.countDown, 1000)
   },
   // async categories() {
   //   const res = await WXAPI.goodsCategory()
