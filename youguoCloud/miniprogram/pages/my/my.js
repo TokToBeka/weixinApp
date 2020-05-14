@@ -1,30 +1,42 @@
 // miniprogram/pages/my/my.js
 // const WXAPI = require("apifm-wxapi")
 // const AUTH = require("../../utils/auth")
+const app = getApp()
 Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    globalData: []
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {},
+  onLoad: function (options) {
+    console.log(app.globalData.auth['scope.userInfo'])
+    if (!app.globalData.auth['scope.userInfo']) {
+      console.log(1212)
+      wx.navigateTo({
+        url: '../index/index'
+      })
+
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  getUserApiInfo: function (e) {
-    wx.cloud.callFunction({
-      name: 'getUserInfo',
-      data: {
-        cloudId: e.detail.cloudID,
-      },
-      success: (res) => {
-        console.log(res)
-      },
-    })
-  },
+  // getUserApiInfo: function (e) {
+  //   wx.cloud.callFunction({
+  //     name: 'getUserInfo',
+  //     data: {
+  //       cloudId: e.detail.cloudID,
+  //     },
+  //     success: (res) => {
+  //       console.log(res)
+  //     },
+  //   })
+  // },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

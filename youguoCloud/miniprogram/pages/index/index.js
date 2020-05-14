@@ -12,7 +12,6 @@ Page({
    */
   onGetUserInfo: function (e) {
     var _this = this
-    console.log('进入onGetUserInfo')
     //需要用户同意授权获取自身相关信息
     if (e.detail.errMsg == 'getUserInfo:ok') {
       //将授权结果写入app.js全局变量
@@ -25,8 +24,6 @@ Page({
         },
         success: (res) => {
           if (res.errMsg == 'cloud.callFunction:ok') {
-            console.log('成功获取')
-            console.log('res:' + JSON.stringify(res.result))
             if (res.result) {
               //如果成功获取到
               //将获取到的用户资料写入app.js全局变量
@@ -34,13 +31,11 @@ Page({
               app.globalData.userInfo = res.result.data.userData
               app.globalData.userId = res.result.data._id
               wx.switchTab({
-                url: '/pages/my/my',
+                url: '../my/my',
               })
             } else {
-              console.log('注册信息')
               //未成功获取到用户信息
               //调用注册方法
-              console.log('未注册')
               _this.register({
                 nickName: e.detail.userInfo.nickName,
                 gender: e.detail.userInfo.gender,
@@ -74,7 +69,6 @@ Page({
    */
   register: function (e) {
     let _this = this
-    console.log('注册信息123')
     wx.cloud.callFunction({
       name: 'get_setUserInfo',
       data: {
@@ -91,11 +85,15 @@ Page({
           _this.data.registered = true
           // app.getLoginState()
           console.log(res)
-
-          wx.switchTab({
-            url: 'pages/home/index',
+          wx.showToast({
+            title: '授权成功',
+            icon: 'success',
+            duration: 800,
+            icon: 'none',
           })
-          console.log(1212);
+          wx.switchTab({
+            url: '../my/my',
+          })
         } else {
           console.log('注册失败', res)
           wx.showToast({
@@ -141,7 +139,7 @@ Page({
                 app.globalData.userInfo = res.result.data.userData
                 app.globalData.userId = res.result.data._id
                 wx.switchTab({
-                  url: 'pages/home/index',
+                  url: '../my/my',
                 })
               } else {
                 _this.setData({
