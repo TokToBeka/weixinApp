@@ -3,118 +3,183 @@ const app = getApp()
 
 Page({
   data: {
-    avatarUrl: './user-unlogin.png',
-    userInfo: {},
-    logged: false,
-    takeSession: false,
-    requestResult: ''
+    hiddenButton: true,
   },
 
-  onLoad: function() {
-    if (!wx.cloud) {
-      wx.redirectTo({
-        url: '../chooseLib/chooseLib',
-      })
-      return
-    }
-
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              this.setData({
-                avatarUrl: res.userInfo.avatarUrl,
-                userInfo: res.userInfo
+  /**
+   *从云端获取资料
+   *如果没有获取到则尝试新建用户资料
+   */
+  onGetUserInfo: function (e) {
+    var _this = this
+    console.log('进入onGetUserInfo')
+    //需要用户同意授权获取自身相关信息
+    if (e.detail.errMsg == 'getUserInfo:ok') {
+      //将授权结果写入app.js全局变量
+      app.globalData.auth['scope.userInfo'] = true
+      //尝试获取云端用户信息
+      wx.cloud.callFunction({
+        name: 'get_setUserInfo',
+        data: {
+          getSelf: true,
+        },
+        success: (res) => {
+          if (res.errMsg == 'cloud.callFunction:ok') {
+            console.log('成功获取')
+            console.log('res:' + JSON.stringify(res.result))
+            if (res.result) {
+              //如果成功获取到
+              //将获取到的用户资料写入app.js全局变量
+              console.log(res)
+              app.globalData.userInfo = res.result.data.userData
+              app.globalData.userId = res.result.data._id
+              wx.switchTab({
+                url: '/pages/my/my',
+              })
+            } else {
+              console.log('注册信息')
+              //未成功获取到用户信息
+              //调用注册方法
+              console.log('未注册')
+              _this.register({
+                nickName: e.detail.userInfo.nickName,
+                gender: e.detail.userInfo.gender,
+                avatarUrl: e.detail.userInfo.avatarUrl,
+                region: {
+                  country: e.detail.userInfo.country,
+                  province: e.detail.userInfo.province,
+                  city: e.detail.userInfo.city,
+                },
+                phoneNumber: 'none',
               })
             }
+          }
+        },
+        fail: (err) => {
+          wx.showToast({
+            title: '请检查网络您的状态',
+            duration: 800,
+            icon: 'none',
           })
-        }
-      }
-    })
-  },
-
-  onGetUserInfo: function(e) {
-    if (!this.data.logged && e.detail.userInfo) {
-      this.setData({
-        logged: true,
-        avatarUrl: e.detail.userInfo.avatarUrl,
-        userInfo: e.detail.userInfo
+          console.error('get_setUserInfo调用失败', err.errMsg)
+        },
       })
+    } else {
+      console.log('未授权')
     }
   },
 
-  onGetOpenid: function() {
-    // 调用云函数
+  /**
+   *注册用户信息
+   */
+  register: function (e) {
+    let _this = this
+    console.log('注册信息123')
     wx.cloud.callFunction({
-      name: 'login',
-      data: {},
-      success: res => {
-        console.log('[云函数] [login] user openid: ', res.result.openid)
-        app.globalData.openid = res.result.openid
-        wx.navigateTo({
-          url: '../userConsole/userConsole',
-        })
+      name: 'get_setUserInfo',
+      data: {
+        setSelf: true,
+        userData: e,
       },
-      fail: err => {
-        console.error('[云函数] [login] 调用失败', err)
-        wx.navigateTo({
-          url: '../deployFunctions/deployFunctions',
+      success: (res) => {
+        if (res.errMsg == 'cloud.callFunction:ok' && res.result) {
+          _this.setData({
+            hiddenButton: true,
+          })
+          app.globalData.userInfo = e
+          app.globalData.userId = res.result._id
+          _this.data.registered = true
+          // app.getLoginState()
+          console.log(res)
+
+          wx.switchTab({
+            url: 'pages/home/index',
+          })
+          console.log(1212);
+        } else {
+          console.log('注册失败', res)
+          wx.showToast({
+            title: '请检查您的网络状态',
+            duration: 800,
+            icon: 'none',
+          })
+        }
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '请检查您的网络状态',
+          duration: 800,
+          icon: 'none',
         })
-      }
+        console.error('get_setUserInfo调用失败', err.errMsg)
+      },
     })
   },
 
-  // 上传图片
-  doUpload: function () {
-    // 选择图片
-    wx.chooseImage({
-      count: 1,
-      sizeType: ['compressed'],
-      sourceType: ['album', 'camera'],
-      success: function (res) {
-
-        wx.showLoading({
-          title: '上传中',
-        })
-
-        const filePath = res.tempFilePaths[0]
-        
-        // 上传图片
-        const cloudPath = 'my-image' + filePath.match(/\.[^.]+?$/)[0]
-        wx.cloud.uploadFile({
-          cloudPath,
-          filePath,
-          success: res => {
-            console.log('[上传文件] 成功：', res)
-
-            app.globalData.fileID = res.fileID
-            app.globalData.cloudPath = cloudPath
-            app.globalData.imagePath = filePath
-            
-            wx.navigateTo({
-              url: '../storageConsole/storageConsole'
-            })
-          },
-          fail: e => {
-            console.error('[上传文件] 失败：', e)
-            wx.showToast({
-              icon: 'none',
-              title: '上传失败',
-            })
-          },
-          complete: () => {
-            wx.hideLoading()
-          }
-        })
-
+  /**
+   *生命周期函数--监听页面加载
+   */
+  onLoad: function () {
+    let _this = this
+    // 需要用户同意授权获取自身相关信息
+    wx.getSetting({
+      success: (res) => {
+        if (res.authSetting['scope.userInfo']) {
+          //将授权结果写入app.js全局变量
+          app.globalData.auth['scope.userInfo'] = true
+          //从云端获取用户资料
+          wx.cloud.callFunction({
+            name: 'get_setUserInfo',
+            data: {
+              getSelf: true,
+            },
+            success: (res) => {
+              if (res.errMsg == 'cloud.callFunction:ok' && res.result) {
+                //如果成功获取到
+                //将获取到的用户资料写入app.js全局变量
+                console.log(res)
+                app.globalData.userInfo = res.result.data.userData
+                app.globalData.userId = res.result.data._id
+                wx.switchTab({
+                  url: 'pages/home/index',
+                })
+              } else {
+                _this.setData({
+                  hiddenButton: false,
+                })
+                console.log('未注册')
+              }
+            },
+            fail: (err) => {
+              _this.setData({
+                hiddenButton: false,
+              })
+              wx.showToast({
+                title: '请检查您的网络状态',
+                duration: 800,
+                icon: 'none',
+              })
+              console.error('get_setUserInfo调用失败', err.errMsg)
+            },
+          })
+        } else {
+          _this.setData({
+            hiddenButton: false,
+          })
+          console.log('未授权')
+        }
       },
-      fail: e => {
-        console.error(e)
-      }
+      fail: (err) => {
+        _this.setData({
+          hiddenButton: false,
+        })
+        wx.showToast({
+          title: '请检查您的网络状态',
+          duration: 800,
+          icon: 'none',
+        })
+        console.error('get_setUserInfo调用失败', err.errMsg)
+      },
     })
   },
-
 })
