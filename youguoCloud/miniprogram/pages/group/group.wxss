@@ -1,1 +1,72 @@
-/* miniprogram/pages/group/group.wxss */
+.tuan {
+  width: 750rpx;
+  background-color: #F2f2f2;
+  padding-top: 10rpx;
+}
+
+.tuan-item {
+  width: 720rpx;
+  margin: auto;
+  margin-top: 20rpx;
+  background-color: #FFF;
+  position: relative;
+}
+
+.tuan-goods-pic {
+  width: 720rpx;
+  height: 250rpx;
+  overflow: hidden;
+}
+
+.tuan-goods-pic image {
+  /* width: 720rpx; */
+  width: 100%;
+  height: 100%;
+}
+
+.tuan-title {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.tuan-profile {
+  margin-left: 20rpx;
+  font-size: 28rpx;
+  color: #999;
+}
+
+.tuan-price {
+  margin-left: 20rpx;
+}
+
+.tuan-price .now {
+  font-size: 36rpx;
+  color: #e64340;
+}
+
+.tuan-price .original {
+  margin-left: 20rpx;
+  font-size: 26rpx;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.tuan-btn {
+  position: absolute;
+  right: 30rpx;
+  bottom: 10rpx;
+}
+
+.tuan-btn button {
+  background-color: #34cc99;
+  font-size: 26rpx;
+  color: #fff;
+  font-weight: 400;
+  width: 200rpx;
+  border-radius: 40rpx;
+  min-height: 30rpx;
+  line-height: 30rpx;
+
+}

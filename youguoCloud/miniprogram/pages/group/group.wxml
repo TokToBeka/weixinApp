@@ -1,2 +1,23 @@
-<!--miniprogram/pages/group/group.wxml-->
-<text>团购</text>
+<view class="container">
+  <block>
+    <view class='tuan'>
+      <view class='tuan-item' wx:for-items="{{pingtuanList}}" wx:key="*this">
+        <view class='tuan-goods-pic'>
+          <image src="{{item.pic}}" mode="aspectFill" lazy-load='{{true}}' />
+        </view>
+        <view class='tuan-title'>{{item.name}}</view>
+        <view class='tuan-profile'>{{item.characteristic}}</view>
+        <view class="weui-badge" style="margin-left: 20rpx;" wx:if="{{item.tags}}">
+          {{item.tags}}
+        </view>
+        <view class='tuan-price'>
+          <text class='now'>￥ {{item.pingtuanPrice}}</text>
+          <text class='original'>￥ {{item.originalPrice}}</text>
+        </view>
+        <view class="tuan-btn">
+          <button bindtap="toDetailsTap" data-id="{{item.id}}">去拼团</button>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
