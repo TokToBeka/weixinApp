@@ -1,2 +1,4 @@
-<!--miniprogram/pages/purchase/purchase.wxml-->
-<text>购物车</text>
+<view class="container">
+  <view class="title-box">购物车空空如也～</view>
+  <view class="to-index-btn" bindtap="toIndexPage">去逛逛</view>
+</view>

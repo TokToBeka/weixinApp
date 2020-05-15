@@ -1,1 +1,27 @@
-/* miniprogram/pages/my/my.wxss */
+.userInfo {
+  height: 300rpx;
+  background-color: #34cc99;
+}
+
+.userAvatar {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;
+  margin: 20rpx;
+  vertical-align: middle;
+}
+
+.username {
+  display: inline-block;
+  color: #fff;
+  vertical-align: middle;
+}
+
+.setting {
+  width: 64rpx;
+  height: 64rpx;
+  float: right;
+  margin: 40rpx;
+}

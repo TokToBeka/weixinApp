@@ -28,7 +28,6 @@ exports.main = async (event, context) => {
   } else if (event.getSelf == true) {
     //获取当前用户信息
     try {
-      console.log('获取用户信息')
       return await usersTable
         .doc(md5(wxContext.OPENID))
         .field({
@@ -41,7 +40,6 @@ exports.main = async (event, context) => {
   } else if (event.setSelf == true) {
     //添加当前用户信息
     try {
-      console.log('添加信息')
       return await usersTable.add({
         data: {
           _id: md5(wxContext.OPENID),

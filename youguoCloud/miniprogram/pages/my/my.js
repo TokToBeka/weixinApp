@@ -14,14 +14,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(app.globalData.auth['scope.userInfo'])
-    if (!app.globalData.auth['scope.userInfo']) {
-      console.log(1212)
-      wx.navigateTo({
-        url: '../index/index'
-      })
+    // console.log(app.globalData.auth['scope.userInfo'])
+    // if (!app.globalData.auth['scope.userInfo']) {
+    //   console.log(1212)
+    //   wx.navigateTo({
+    //     url: '../index/index'
+    //   })
 
-    }
+    // }
   },
   /**
    * 生命周期函数--监听页面加载
