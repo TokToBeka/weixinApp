@@ -48,14 +48,11 @@
       <view class="left-text">
         <view class="countdown-box">
           <text style="margin-right:10rpx">距结束</text>
-          <text class="countdown-item">{{countDownObj.day}}</text>
-          天
           <text class="countdown-item">{{countDownObj.hou}}</text>
-          时
+          :
           <text class="countdown-item">{{countDownObj.min}}</text>
-          分
+          :
           <text class="countdown-item">{{countDownObj.sec}}</text>
-          秒
         </view>
       </view>
       <view class="right-txt">
@@ -79,7 +76,7 @@
         </view>
       </view>
     </view>
-    <view class="img_wrap">
+    <view class="img_wrap" style="margin-top: -20rpx;">
       <image src="../../assets/img/title1.jpg" />
     </view>
     <view class="goods-container">
@@ -92,6 +89,9 @@
           <view class="goods-price">¥ {{item.minPrice}}</view>
           <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>
             ¥ {{item.originalPrice}}
+          </view>
+          <view class="goods-img">
+            <image src="../../assets/img/shopping.png" />
           </view>
         </view>
       </view>

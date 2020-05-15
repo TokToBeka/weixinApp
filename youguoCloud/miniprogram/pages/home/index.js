@@ -6,27 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    swiperImg: [
-      {
+    swiperImg: [{
         mode: 'scaleTofill',
-        url:
-          'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-3.jpg',
+        url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-3.jpg',
       },
       {
         mode: 'scaleTofill',
-        url:
-          'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-6.jpg',
+        url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-6.jpg',
       },
       {
         mode: 'scaleTofill',
-        url:
-          'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-10.jpg',
+        url: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/swiper-image/banner-10.jpg',
       },
     ],
-    ticketImgUrl:
-      'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket.png',
-    ticket_bImgUrl:
-      'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket_b.png',
+    ticketImgUrl: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket.png',
+    ticket_bImgUrl: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket_b.png',
     indicatorDots: true,
     indicatorActiveColor: '#34cc99',
     autoplay: true,
@@ -36,15 +30,14 @@ Page({
     easingFunction: 'easeInOutCubic',
     pageData: {
       skip: 0,
-      limit: 2,
+      limit: 4,
     },
     categories: [],
     goods: [],
     loadingMoreHidden: true,
     actEndTime: '2020/5/22 09:00:00',
     countDownObj: {},
-    countDownList: [
-      {
+    countDownList: [{
         url: '../../assets/img/fruit1.jpg',
         title: '越南进口白心火龙果',
         discountPrice: '29.9',
@@ -57,8 +50,7 @@ Page({
         originalPrice: '55.9',
       },
     ],
-    categoryList: [
-      {
+    categoryList: [{
         url: '../../assets/img/img2.png',
         title: '进口水果',
       },
@@ -193,7 +185,7 @@ Page({
           that.setData({
             loadingMoreHidden: true,
             goods: oldData.concat(res),
-            'pageData.skip': that.data.pageData.skip + 2,
+            'pageData.skip': that.data.pageData.skip + 4,
           })
         },
       })

@@ -226,7 +226,7 @@ page {
 }
 
 .countdown-item {
-  background-color: #000;
+  background-color: #e93b3d;
   color: #fff;
   padding: 0 5rpx;
   border-radius: 3rpx;
