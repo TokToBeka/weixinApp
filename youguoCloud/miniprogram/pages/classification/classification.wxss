@@ -169,10 +169,16 @@ input {
 }
 
 .goods-container .goods .soldInfo .good-sales-box .number {
-  color: #d81e06;
+  color: #34cc99;
   padding: 2px;
-  border: 1px solid #d81e06;
+  border: 1px solid #34cc99;
   border-radius: 5rpx;
+  margin-bottom: 7rpx;
+}
+
+.goods-container .goods .soldInfo .good-sales-box .pic {
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .ellipsis {

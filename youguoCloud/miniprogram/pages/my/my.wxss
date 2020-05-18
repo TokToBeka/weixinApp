@@ -1,9 +1,16 @@
-.userInfo {
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #f2f2f2;
+  position: relative;
+}
+
+.user-info {
   height: 300rpx;
   background-color: #34cc99;
 }
 
-.userAvatar {
+.user-avatar {
   width: 100rpx;
   height: 100rpx;
   border-radius: 50%;
@@ -24,4 +31,63 @@
   height: 64rpx;
   float: right;
   margin: 40rpx;
+}
+
+.order-box {
+  width: 95%;
+  height: 200rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: -100rpx;
+}
+
+.order-box .order-header {
+  display: flex;
+}
+
+.order-box .order-header text {
+  flex: 1;
+  padding: 20rpx 20rpx;
+}
+
+.order-box .order-header .my-order {
+  font-weight: 600;
+}
+
+.order-box .order-header .all-order {
+  font-size: 26rpx;
+  text-align: right;
+  color: #666666;
+}
+
+.order-content {
+  background-color: #fff;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 10rpx;
+}
+
+.order-list {
+  width: 130rpx;
+  margin-top: 20rpx;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.order-column {
+  width: 100%;
+  margin-top: 20rpx;
+  overflow: hidden;
+}
+
+.order-imgbox {
+  width: 80rpx;
+  height: 80rpx;
+}
+
+.order-title {
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 10rpx;
 }

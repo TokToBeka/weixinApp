@@ -7,7 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    globalData: []
+    globalData: [],
+    orderList: [{
+      'url': '../../assets/img/pay.png',
+      'title': '待付款'
+    }, {
+      'url': '../../assets/img/Receipt.png',
+      'title': '待收货'
+    }, {
+      'url': '../../assets/img/evaluation.png',
+      'title': '待评价'
+    }, {
+      'url': '../../assets/img/afterSale.png',
+      'title': '退换/售后'
+    }]
   },
 
   /**

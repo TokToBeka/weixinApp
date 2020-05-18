@@ -34,12 +34,15 @@
         <view class="soldInfo">
           <view class="good-price-box">
             <text class="price">￥{{item.minPrice}}</text>
+            <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through;margin-bottom: 10rpx;'>
+              ¥ {{item.originalPrice}}
+            </view>
           </view>
         </view>
         <view class="soldInfo">
           <view class="good-sales-box">
             <text class="number">已售{{item.numberOrders}}件</text>
-            <text>评价{{item.gotScore}}分</text>
+            <image class="pic" src="../../assets/img/shopping.png" />
           </view>
         </view>
       </view>
