@@ -9,15 +9,27 @@
     <image class="setting" src="../../assets/img/setting.png" />
   </view>
   <view class="order-box">
-    <!-- <view class="order-header">
-      <text class="my-order">我的订单</text>
-      <text class="all-order">全部订单></text>
-    </view> -->
     <view class="order-content">
       <view class="order-list" wx:for="{{orderList}}" wx:key="index">
         <view class="order-column">
           <image mode="aspectFill" class="order-imgbox" src="{{item.url}}"></image>
           <view class="order-title">{{item.title}}</view>
+        </view>
+      </view>
+      <view class="order-right">
+        <image class="dividing-line" src="../../assets/img/line.png" />
+      </view>
+    </view>
+  </view>
+  <view class="service-box">
+    <view class="service-header">
+      <text class="my-service">我的服务</text>
+    </view>
+    <view class="service-content">
+      <view class="service-list" wx:for="{{serviceList}}" wx:key="index">
+        <view class="service-column">
+          <image mode="aspectFill" class="service-imgbox" src="{{item.url}}"></image>
+          <view class="service-title">{{item.title}}</view>
         </view>
       </view>
     </view>

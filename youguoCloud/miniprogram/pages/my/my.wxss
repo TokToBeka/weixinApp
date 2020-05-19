@@ -39,6 +39,7 @@
   background-color: #fff;
   margin: 0 auto;
   margin-top: -100rpx;
+  border-radius: 10rpx;
 }
 
 .order-box .order-header {
@@ -60,34 +61,82 @@
   color: #666666;
 }
 
-.order-content {
+.order-content,
+.service-content {
+  width: 95%;
+  margin: 0 auto;
   background-color: #fff;
   display: flex;
   flex-wrap: wrap;
   border-radius: 10rpx;
 }
 
-.order-list {
-  width: 130rpx;
+.order-list,
+.service-list {
+  width: 170rpx;
   margin-top: 20rpx;
   text-align: center;
   display: inline-block;
   overflow: hidden;
 }
 
-.order-column {
+.order-column,
+.service-column {
   width: 100%;
   margin-top: 20rpx;
   overflow: hidden;
 }
 
-.order-imgbox {
+.order-imgbox,
+.service-imgbox {
   width: 80rpx;
   height: 80rpx;
 }
 
-.order-title {
+.order-title,
+.service-title {
   font-size: 24rpx;
   text-align: center;
   margin-top: 10rpx;
+}
+
+.order-right {
+  position: absolute;
+  right: 180rpx;
+}
+
+.order-right .dividing-line {
+  width: 20rpx;
+  height: 200rpx;
+}
+
+.service-content {
+  border-top: 1px solid #efefef;
+}
+
+.service-box {
+  width: 95%;
+  height: 490rpx;
+  background-color: #fff;
+  margin: 0 auto;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+}
+
+.service-box .service-header {
+  display: flex;
+}
+
+.service-box .service-header text {
+  flex: 1;
+  padding: 20rpx 20rpx;
+  font-weight: 600;
+}
+
+.service-list {
+  width: 170rpx;
+  margin-top: 20rpx;
+  text-align: center;
+  display: inline-block;
+  overflow: hidden;
 }
