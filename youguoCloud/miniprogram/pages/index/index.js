@@ -1,4 +1,3 @@
-//index.js
 const app = getApp()
 
 Page({
@@ -30,6 +29,9 @@ Page({
               console.log(res)
               app.globalData.userInfo = res.result.data.userData
               app.globalData.userId = res.result.data._id
+
+              //将获取到的用户资料写入缓存中
+              wx.setStorageSync('userInfo', res.result.data);
               wx.switchTab({
                 url: '../my/my',
               })
@@ -83,7 +85,9 @@ Page({
           app.globalData.userInfo = e
           app.globalData.userId = res.result._id
           _this.data.registered = true
-          // app.getLoginState()
+
+          //将获取到的用户资料写入缓存中
+          wx.setStorageSync('userInfo', res.result.data);
           console.log(res)
           wx.showToast({
             title: '授权成功',
@@ -138,6 +142,9 @@ Page({
                 console.log(res)
                 app.globalData.userInfo = res.result.data.userData
                 app.globalData.userId = res.result.data._id
+
+                //将获取到的用户资料写入缓存中
+                wx.setStorageSync('userInfo', res.result.data);
                 wx.switchTab({
                   url: '../my/my',
                 })

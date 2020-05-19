@@ -1,10 +1,6 @@
-// miniprogram/pages/home/index.js
-// const WXAPI = require('apifm-wxapi')
 const db = wx.cloud.database()
+
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
     swiperImg: [{
         mode: 'scaleTofill',
@@ -92,15 +88,7 @@ Page({
       },
     ],
   },
-  /**
-   * 跳转到指定页面
-   */
-  tabClick: function (e) {
-    // wx.navigateTo({
-    //   url: '/pages/goods/list?categoryId=' + e.currentTarget.id,
-    // })
-    return
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -109,12 +97,14 @@ Page({
     this.countDown()
     this.categories()
   },
+
   /**
    * 小于10的格式化函数
    */
   timeFormat(param) {
     return param < 10 ? '0' + param : param
   },
+
   /**
    * 倒计时函数
    */
@@ -152,6 +142,7 @@ Page({
     })
     setTimeout(this.countDown, 1000)
   },
+
   /**
    * 获取分类数据函数
    */
@@ -159,6 +150,7 @@ Page({
     var that = this
     that.getGoodsList()
   },
+
   /**
    * 获取商品列表函数
    */
@@ -189,38 +181,6 @@ Page({
           })
         },
       })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {},
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {},
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {},
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    this.getGoodsList()
   },
 
   /**
