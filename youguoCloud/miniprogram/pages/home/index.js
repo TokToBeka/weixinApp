@@ -31,7 +31,7 @@ Page({
     categories: [],
     goods: [],
     loadingMoreHidden: true,
-    actEndTime: '2020/5/22 09:00:00',
+    actEndTime: '2020/5/28 09:00:00',
     countDownObj: {},
     countDownList: [{
         url: '../../assets/img/fruit1.jpg',
@@ -93,7 +93,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // this.categories()
     this.countDown()
     this.categories()
   },
@@ -112,7 +111,6 @@ Page({
     // 获取当前时间，同时得到活动结束时间数组
     let newTime = new Date().getTime()
     let endTime = new Date(this.data.actEndTime).getTime()
-    let countDownArr = []
     let obj = null
     // 如果活动未结束，对时间进行处理
     if (endTime - newTime > 0) {
@@ -181,6 +179,23 @@ Page({
           })
         },
       })
+  },
+
+  /**
+   * 跳转到商品详情的处理函数
+   */
+  toDetailsTap: function (e) {
+    console.log('商品id：', e.currentTarget.dataset.id)
+    wx.navigateTo({
+      url: '../goods-details/index?id=' + e.currentTarget.dataset.id
+    })
+
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    this.getGoodsList()
   },
 
   /**

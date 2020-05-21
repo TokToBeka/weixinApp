@@ -72,7 +72,7 @@
       <image src="../../assets/img/title1.jpg" />
     </view>
     <view class="goods-container">
-      <view class="goods-box" wx:for="{{goods}}" wx:key="id" data-id="{{item.id}}">
+      <view class="goods-box" wx:for="{{goods}}" wx:key="id" data-id="{{item.id}}" bindtap="toDetailsTap">
         <view class="img-box">
           <image src="{{item.pic}}" class="image" mode="aspectFill" lazy-load="true" />
         </view>

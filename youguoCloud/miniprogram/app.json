@@ -6,7 +6,8 @@
     "pages/group/group",
     "pages/classification/classification",
     "pages/index/index",
-    "pages/goods/list"
+    "pages/goods/list",
+    "pages/goods-details/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
