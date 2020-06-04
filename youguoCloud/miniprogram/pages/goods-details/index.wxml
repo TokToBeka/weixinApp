@@ -1,10 +1,35 @@
 <view class="container">
-  <!-- <text>商品详情</text> -->
-  <!-- <view class="swiper-container" wx:if="{{!goodsDetail.basicInfo.videoId}}">
+  <view class="swiper-container">
     <swiper class="swiper_box" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
       <swiper-item wx:for="{{goodsDetail.pics}}" wx:key="id">
-        <image src="{{item.pic}}_m" class="slide-image" mode="aspectFill" lazy-load="true" />
+        <image src="{{item.pic}}" class="slide-image" mode="aspectFill" lazy-load="true" />
       </swiper-item>
     </swiper>
-  </view> -->
+  </view>
+  <view class="goods-info">
+    <view class="goods-title">{{goodsDetail.name}}</view>
+    <view class="goods-profile">
+      <view class="p">
+        <text>¥</text>
+        {{goodsDetail.minPrice}}
+      </view>
+      <view class="r">{{goodsDetail.numberOrders}}人已买</view>
+    </view>
+  </view>
+  <view class="footer-box safeAreaOldPaddingBttom safeAreaNewPaddingBttom">
+    <view class="contact">
+      <contact-button style="opacity:0;position:absolute;" type="default-dark" session-from="weapp" size="27"></contact-button>
+      <view style='position:absolute;bottom:10rpx;'>客服</view>
+    </view>
+    <view class="shop-cart-btn" bindtap="goShopCar">
+      <view class="shop-num">({{shopNum}})</view>
+      <view style='position:absolute;bottom:10rpx;'>购物车</view>
+    </view>
+    <view class="join-shop-cart" bindtap="{{goodsDetailSkuShowType==0?'toAddShopCar':'addShopCar'}}">
+      加入购物车
+    </view>
+    <view class="now-buy" data-shopType="{{shopType}}" bindtap="{{goodsDetailSkuShowType==0?'tobuy':'buyNow'}}">
+      立即购买
+    </view>
+  </view>
 </view>

@@ -1,67 +1,49 @@
-// miniprogram/pages/goods-details/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    goodsId: 0,
+    goodsDetail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('商品详情')
-
+    this.data.goodsId = options.id
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onShow() {
+    this.getGoodsDetail(this.data.goodsId)
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  async getGoodsDetail(goodsId) {
+    const that = this
+    wx.cloud.callFunction({
+      name: 'getGoodsDetail',
+      data: {
+        goodsId: goodsId,
+      },
+      success: (res) => {
+        if (res.errMsg == 'cloud.callFunction:ok') {
+          console.log('detail:' + JSON.stringify(res.result.list[0]))
+          that.setData({
+            goodsDetail: res.result.list[0]
+          })
+        }
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '请检查网络您的状态',
+          duration: 800,
+          icon: 'none',
+        })
+        console.error('getGoodsDetail调用失败', err.errMsg)
+      }
+    })
   }
+
+
 })
