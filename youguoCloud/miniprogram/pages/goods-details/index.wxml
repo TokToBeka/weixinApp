@@ -7,14 +7,17 @@
     </swiper>
   </view>
   <view class="goods-info">
-    <view class="goods-title">{{goodsDetail.name}}</view>
     <view class="goods-profile">
-      <view class="p">
-        <text>¥</text>
-        {{goodsDetail.minPrice}}
+      <view class="price-info">
+        ¥
+        <text class="price-main">{{goodsDetail.minPrice}}</text>
+        <text class="price-decimals">.80</text>
       </view>
-      <view class="r">{{goodsDetail.numberOrders}}人已买</view>
     </view>
+    <view class="goods-title">{{goodsDetail.name}}</view>
+  </view>
+  <view class="goods-detail">
+    <image src="{{item.pic}}" wx:for="{{goodsDetailCont}}" wx:key="id" class="detail-image" mode="widthFix" lazy-load="true" />
   </view>
   <view class="footer-box safeAreaOldPaddingBttom safeAreaNewPaddingBttom">
     <view class="contact">
