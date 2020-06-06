@@ -6,16 +6,7 @@ Page({
   data: {
     goodsId: 0,
     goodsDetail: {},
-    goodsDetailCont: [{
-      id: 7000,
-      pic: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/goods-detail/mongo-detail-1.jpg'
-    }, {
-      id: 7001,
-      pic: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/goods-detail/mongo-detail-2.jpg'
-    }, {
-      id: 7002,
-      pic: 'cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/goods-detail/mongo-detail-3.jpg'
-    }]
+    goodsDetailCont: []
   },
 
   /**

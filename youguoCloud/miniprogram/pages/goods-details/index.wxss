@@ -27,6 +27,8 @@ swiper-item image {
   margin-bottom: 24rpx;
   width: 100%;
   position: relative;
+  border-bottom-left-radius: 30rpx;
+  border-bottom-right-radius: 30rpx;
 }
 
 .goods-info .goods-title {
@@ -36,6 +38,7 @@ swiper-item image {
   line-height: 1.4;
   color: #000;
   margin-bottom: 28rpx;
+  font-weight: bold;
 }
 
 .goods-profile {
@@ -44,7 +47,7 @@ swiper-item image {
 }
 
 .goods-profile .price-info {
-  color: #e64340;
+  color: #f2270c;
   font-size: 28rpx;
   margin-left: 30rpx;
 }
@@ -55,6 +58,16 @@ swiper-item image {
 
 .goods-profile .price-info .price-decimals {
   font-size: 32rpx;
+}
+
+.goods-parameter {
+  background-color: #fff;
+  padding: 35rpx 0;
+  margin-bottom: 24rpx;
+  width: 100%;
+  height: 100rpx;
+  position: relative;
+  border-radius: 30rpx;
 }
 
 .goods-detail {

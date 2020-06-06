@@ -154,7 +154,7 @@ page {
 
 .goods-box {
   width: 339rpx;
-  height: 472rpx;
+  height: 510rpx;
   background-color: #fff;
   overflow: hidden;
   margin-bottom: 24rpx;
@@ -175,12 +175,16 @@ page {
 .goods-box .goods-title {
   width: 280rpx;
   text-overflow: ellipsis;
-  white-space: nowrap;
+  white-space: normal;
   overflow: hidden;
   font-size: 24rpx;
   padding: 24rpx 0 0rpx 0;
   color: #000;
   margin-left: 24rpx;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-all;
 }
 
 .goods-box .goods-price {

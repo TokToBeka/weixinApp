@@ -18,6 +18,12 @@ exports.main = async (event, context) => {
         foreignField: 'goodsId',
         as: 'pics'
       })
+      .lookup({
+        from: "goodsCont",
+        localField: 'id',
+        foreignField: 'goodsId',
+        as: 'contents'
+      })
       .match({
         id: parseInt(event.goodsId)
       })

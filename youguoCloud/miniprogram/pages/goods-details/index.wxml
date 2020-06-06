@@ -16,8 +16,16 @@
     </view>
     <view class="goods-title">{{goodsDetail.name}}</view>
   </view>
+  <!-- <view class="goods-parameter">
+    <view class="choose-info">
+      <text>已选</text>
+    </view>
+    <view>
+      <text>重量</text>
+    </view>
+  </view> -->
   <view class="goods-detail">
-    <image src="{{item.pic}}" wx:for="{{goodsDetailCont}}" wx:key="id" class="detail-image" mode="widthFix" lazy-load="true" />
+    <image src="{{item.src}}" wx:for="{{goodsDetail.contents}}" wx:key="id" class="detail-image" mode="widthFix" lazy-load="true" />
   </view>
   <view class="footer-box safeAreaOldPaddingBttom safeAreaNewPaddingBttom">
     <view class="contact">

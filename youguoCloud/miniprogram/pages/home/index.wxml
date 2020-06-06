@@ -82,9 +82,6 @@
           <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>
             ¥ {{item.originalPrice}}
           </view>
-          <view class="goods-img">
-            <image src="../../assets/img/shopping.png" />
-          </view>
         </view>
       </view>
     </view>
