@@ -73,7 +73,7 @@
 
 .order-list,
 .service-list {
-  width: 170rpx;
+  width: 169rpx;
   margin-top: 20rpx;
   text-align: center;
   display: inline-block;
@@ -134,7 +134,7 @@
 }
 
 .service-list {
-  width: 170rpx;
+  width: 169rpx;
   margin-top: 20rpx;
   text-align: center;
   display: inline-block;
