@@ -53,7 +53,133 @@ page {
   margin-top: 10rpx;
 }
 
-.ticket-box {
+.coupon-box{
+  padding: 20rpx;
+  background-color: #f2f2f2;
+}
+
+.coupon-wrapper{
+  margin: 0 auto;
+  width: 100%;
+  display: flex;
+  background: linear-gradient(-90deg,rgba(250,173,82,1),rgba(254,50,103,1));
+}
+
+.coupon-content{
+  position: relative;
+  flex: 1;
+  padding: 20rpx 30rpx;
+  text-align: center;
+}
+
+.coupon-content::before, .coupon-content::after{
+  content: '';
+  position: absolute;
+  width: 32rpx;
+  height: 16rpx;
+  background: #f2f2f2;
+  left: -16rpx;
+  z-index: 1;
+}
+
+.coupon-tip{
+  position: relative;
+  padding: 50rpx 30rpx;
+  flex: 0 0 200rpx;
+  text-align: center;
+}
+
+.coupon-tip::before, .coupon-tip::after{
+  content: '';
+  position: absolute;
+  width: 32rpx;
+  height: 16rpx;
+  background: #f2f2f2;
+  left: -16rpx;
+  z-index: 1;
+}
+
+.split-line{
+  position: relative;
+  flex: 0 0 0;
+  margin: 0 10rpx 0 6rpx;
+  border-left: 4rpx dashed #f2f2f2;
+}
+
+.split-line::before, .split-line::after{
+  content: '';
+  position: absolute;
+  width: 32rpx;
+  height: 16rpx;
+  background: #f2f2f2;
+  left: -18rpx;
+  z-index: 1;
+}
+
+.coupon-content::before, .coupon-tip::before, .split-line::before{
+  border-radius: 0 0 16rpx 16rpx;
+  top: 0;
+}
+
+.coupon-content::after, .coupon-tip::after, .split-line::after{
+  border-radius: 16rpx 16rpx 0 0;
+  bottom: 0;
+}
+
+.coupon-money{
+  font-size: 80rpx;
+  color: #f2f2f2;
+}
+
+.coupon-money text{
+  font-size: 50rpx;
+  padding-right: 20rpx;
+}
+
+.description-title{
+  color: #f2f2f2;
+  font-size: 30rpx;
+}
+
+.description-title{
+  color: #f2f2f2;
+  font-size: 30rpx;
+}
+
+.coupon-conditions{
+  color: #f2f2f2;
+  font-size: 30rpx;
+  padding: 15rpx;
+}
+
+.coupon-useNow{
+  width: 110rpx;
+  color: rgba(254, 50, 103, 1);
+  font-size: 30rpx;
+  border-radius: 50rpx;
+  border-style: none;
+}
+
+.coupon-description{
+  padding-top: 10rpx;
+}
+
+.coupon-description .left-line{
+  width: 64rpx;
+  height: 1rpx;
+  background: #fff;
+  margin-left: 60rpx;
+  margin-bottom: -40rpx;
+}
+
+.coupon-description .right-line{
+  width: 64rpx;
+  height: 1rpx;
+  background: #fff;
+  margin-left: 260rpx;
+  margin-bottom: -15rpx;
+}
+/* .ticket-box {
   background-color: #fff;
 }
 
@@ -131,7 +257,7 @@ page {
   position: absolute;
   top: 24rpx;
   left: 38rpx;
-}
+} */
 
 .img_wrap {
   height: 82rpx;
