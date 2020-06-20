@@ -21,20 +21,19 @@
       <view class="coupon-wrapper">
         <view class="coupon-content">
           <view class="coupon-money">
-            <text>￥</text>50
+            <text>￥</text>
+            50
           </view>
           <view class="coupon-description">
-            <view class="left-line"></view>
+            <!-- <view class="left-line"></view> -->
             <view class="description-title">优惠券</view>
-            <view class="right-line"></view>
+            <!-- <view class="right-line"></view> -->
           </view>
         </view>
         <view class="split-line"></view>
         <view class="coupon-tip">
-          <view class="coupon-conditions">
-            满200元使用
-          </view>
-          <button class="coupon-useNow" size="mini">立即使用</button>
+          <view class="coupon-conditions">满200元使用</view>
+          <button class="coupon-useNow" size="mini">立即领取</button>
         </view>
       </view>
     </view>
