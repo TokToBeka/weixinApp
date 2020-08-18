@@ -25,6 +25,9 @@
           <view class="coupon">满200减20</view>
         </view>
       </view>
+      <view class="discount-more">
+        
+      </view>
     </view>
   </view>
   <view class="goods-detail">

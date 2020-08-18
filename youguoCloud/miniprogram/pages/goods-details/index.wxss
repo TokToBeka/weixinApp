@@ -70,6 +70,10 @@ swiper-item image {
   border-radius: 30rpx;
 }
 
+.discount-floor{
+  padding: 0 30rpx;
+}
+
 .coupon{
   position: relative;
   display: inline-block;
