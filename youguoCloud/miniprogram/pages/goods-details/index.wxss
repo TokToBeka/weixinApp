@@ -72,24 +72,52 @@ swiper-item image {
 
 .discount-floor{
   padding: 0 30rpx;
+  display: flex;
+  font-size: 26rpx;
+}
+
+.discount-title{
+  flex: 1;
+  font-weight: 700;
+}
+
+.discount-content{
+  flex: 7;
+}
+
+.discount-more{
+  flex: 1;
 }
 
 .coupon{
   position: relative;
   display: inline-block;
-  margin-right: 5px;
-  padding: 0 9px 0 12px;
-  border-top: 1px solid #f2270c;
-  border-bottom: 1px solid #f2270c;
-  height: 16px;
-  line-height: 16px;
+  margin-right: 10rpx;
+  padding: 0 18rpx 0 24rpx;
+  border-top: 2rpx solid #f2270c;
+  border-bottom: 2rpx solid #f2270c;
+  height: 32rpx;
+  line-height: 32rpx;
   color: #f2270c;
-  font-size: 10px;
+  font-size: 20rpx;
 }
 
 .coupon::before{
   content: '';
+  width: 16rpx;
+  height: 32rpx;
+  position: absolute;
+  left: -20rpx;
+  top: -2rpx;
+  border: 2rpx solid #f2270c;
+  border-right: 2rpx dotted #f2270c;
+  background: radial-gradient(circle at 0rpx 16rpx, #f2270c 6rpx, transparent 0) top;
 }
+
+.coupon::after{
+  content: '';
+}
+
 .goods-detail {
   width: 100%;
 }
