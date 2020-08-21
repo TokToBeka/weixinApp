@@ -1,25 +1,38 @@
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     goodsId: 0,
     goodsDetail: {},
-    goodsDetailCont: []
+    goodsDetailCont: [],
+    show: false,
+    // buttons: [
+    //     {
+    //         type: 'default',
+    //         className: '',
+    //         text: '辅助操作',
+    //         value: 0
+    //     },
+    //     {
+    //         type: 'primary',
+    //         className: '',
+    //         text: '主操作',
+    //         value: 1
+    //     }
+    // ]
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.data.goodsId = options.id
   },
-
   onShow() {
     this.getGoodsDetail(this.data.goodsId)
   },
-
+  open() {
+    this.setData({
+        show: true
+    })
+  },
+  buttontap(e) {
+      console.log(e.detail)
+  },
   async getGoodsDetail(goodsId) {
     const that = this
     wx.cloud.callFunction({
@@ -45,6 +58,4 @@ Page({
       }
     })
   }
-
-
 })

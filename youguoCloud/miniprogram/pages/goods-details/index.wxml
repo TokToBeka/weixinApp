@@ -26,9 +26,17 @@
         </view>
       </view>
       <view class="discount-more">
-        
+        <image src="cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/more.png" lazy-load="true" bindtap="open"/>
       </view>
     </view>
+    <mp-halfScreenDialog 
+      bindbuttontap="buttontap"
+      show="{{show}}"
+      maskClosable="{{true}}" 
+      title="优惠" 
+      desc="内容"
+    >
+    </mp-halfScreenDialog>
   </view>
   <view class="goods-detail">
     <image src="{{item.src}}" wx:for="{{goodsDetail.contents}}" wx:key="id" class="detail-image" mode="widthFix" lazy-load="true" />

@@ -87,6 +87,7 @@ swiper-item image {
 
 .discount-more{
   flex: 1;
+  text-align: center;
 }
 
 .coupon{
@@ -109,13 +110,28 @@ swiper-item image {
   position: absolute;
   left: -20rpx;
   top: -2rpx;
-  border: 2rpx solid #f2270c;
-  border-right: 2rpx dotted #f2270c;
-  background: radial-gradient(circle at 0rpx 16rpx, #f2270c 6rpx, transparent 0) top;
+  background-image: url('cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket.png');
+  background-size: 16rpx 32rpx;
+  background-repeat: no-repeat;
+
 }
 
 .coupon::after{
   content: '';
+  width: 16rpx;
+  height: 32rpx;
+  position: absolute;
+  left: -20rpx;
+  top: -2rpx;
+  background-image: url('cloud://youguo-7vd16.796f-youguo-7vd16-1301087841/item-image/ticket.png');
+  background-size: 16rpx 32rpx;
+  background-repeat: no-repeat;
+  background-position: -22rpx 0;
+}
+
+.discount-more image {
+  width: 40rpx;
+  height: 40rpx;
 }
 
 .goods-detail {

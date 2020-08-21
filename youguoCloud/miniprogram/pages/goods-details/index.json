@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "商品详情"
+  "navigationBarTitleText": "商品详情",
+  "usingComponents": {
+    "mp-halfScreenDialog": "../../miniprogram_npm/weui-miniprogram/half-screen-dialog/half-screen-dialog"
+  }
 }
