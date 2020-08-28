@@ -1,7 +1,8 @@
+<wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
 <view class="container">
   <view class="swiper-container">
     <swiper class="swiper_box" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
-      <swiper-item wx:for="{{goodsDetail.pics}}" wx:key="id">
+      <swiper-item wx:for="{{ goodsDetail.pics }}" wx:key="id">
         <image src="{{item.pic}}" class="slide-image" mode="aspectFill" lazy-load="true" />
       </swiper-item>
     </swiper>
@@ -30,12 +31,36 @@
       </view>
     </view>
     <mp-halfScreenDialog 
-      bindbuttontap="buttontap"
       show="{{show}}"
-      maskClosable="{{true}}" 
-      title="优惠" 
-      desc="内容"
-    >
+      maskClosable="{{true}}" >
+      <view slot="title">
+        <text>优惠</text>
+      </view>
+      
+      <view slot="desc">
+        <view class="couponList" wx:for="{{ goodsDetail.coupons }}" wx:key="id">
+          <view class="stamp stamp04">
+            <view class="par">
+              <view class="top-info">
+                <text class="sign">￥</text>
+                <text class="money">{{ item.price }}</text>
+                <text class="voucher">优惠券</text>
+              </view>
+              <view class="bottom-info">
+                <text class="describe">{{ item.describe }}</text>
+              </view>
+            </view>
+            <view class="copy">
+              <view class="date">{{ dateUtil.dateFormat(item.startDate,'yyyy-MM-dd') }}</view>
+              <view class="date">{{ dateUtil.dateFormat(item.endDate,'yyyy-MM-dd') }}</view>
+              <view class="btn-area">
+                <button class="btn1 {{canUse ? 'useDis' : 'use'}}" disabled="{{ canUse }}" bindtap="useCoupon" hover-class="button-hover">{{ btnInfo }}</button>
+              </view>
+            </view>
+            <label></label>
+          </view>
+        </view>
+      </view>
     </mp-halfScreenDialog>
   </view>
   <view class="goods-detail">

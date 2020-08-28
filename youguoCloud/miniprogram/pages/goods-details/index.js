@@ -4,20 +4,8 @@ Page({
     goodsDetail: {},
     goodsDetailCont: [],
     show: false,
-    // buttons: [
-    //     {
-    //         type: 'default',
-    //         className: '',
-    //         text: '辅助操作',
-    //         value: 0
-    //     },
-    //     {
-    //         type: 'primary',
-    //         className: '',
-    //         text: '主操作',
-    //         value: 1
-    //     }
-    // ]
+    canUse: false,
+    btnInfo: '立即使用'
   },
   onLoad: function (options) {
     this.data.goodsId = options.id
@@ -30,8 +18,11 @@ Page({
         show: true
     })
   },
-  buttontap(e) {
-      console.log(e.detail)
+  useCoupon() {
+    this.setData({
+      canUse: true,
+      btnInfo: '已领取'
+  })
   },
   async getGoodsDetail(goodsId) {
     const that = this
