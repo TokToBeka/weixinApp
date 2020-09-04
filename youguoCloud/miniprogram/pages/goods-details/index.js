@@ -5,7 +5,8 @@ Page({
     goodsDetailCont: [],
     show: false,
     canUse: false,
-    btnInfo: '立即使用'
+    btnInfo: '立即使用',
+    couponId:[]
   },
   onLoad: function (options) {
     this.data.goodsId = options.id
@@ -18,11 +19,15 @@ Page({
         show: true
     })
   },
-  useCoupon() {
+  useCoupon(event) {
+    console.log('couponId0:',this.data.couponId)
+    this.data.couponId.push(event.currentTarget.dataset.status)
+    console.log('couponId1:',this.data.couponId)
     this.setData({
       canUse: true,
+      couponId: this.data.couponId,
       btnInfo: '已领取'
-  })
+    })
   },
   async getGoodsDetail(goodsId) {
     const that = this

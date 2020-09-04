@@ -37,7 +37,6 @@ var dateFormat = function (timestamp, format) {
         ? v : ("00" + v).substring(("" + v).length))
     }
   }
-  console.log('format:',format)
   return format
 }
  

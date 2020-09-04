@@ -1,4 +1,6 @@
 <wxs module="dateUtil" src="../../utils/timeUtil.wxs"></wxs>
+<wxs module="indexUtil" src="../../utils/indexUtil.wxs"></wxs>
+
 <view class="container">
   <view class="swiper-container">
     <swiper class="swiper_box" indicator-dots="true" indicator-active-color="#fff" autoplay circular>
@@ -54,7 +56,7 @@
               <view class="date">{{ dateUtil.dateFormat(item.startDate,'yyyy-MM-dd') }}</view>
               <view class="date">{{ dateUtil.dateFormat(item.endDate,'yyyy-MM-dd') }}</view>
               <view class="btn-area">
-                <button class="btn1 {{canUse ? 'useDis' : 'use'}}" disabled="{{ canUse }}" bindtap="useCoupon" hover-class="button-hover">{{ btnInfo }}</button>
+                <button class="btn1 {{ indexUtil.indexOf(couponId,item.id) ? 'useDis' : 'use'}}" disabled="{{ indexUtil.indexOf(couponId,item.id) }}" data-status="{{item.id}}" bindtap="useCoupon" hover-class="button-hover">{{ indexUtil.indexOf(couponId,item.id) ? '已领取' : '立即使用' }}</button>
               </view>
             </view>
             <label></label>
